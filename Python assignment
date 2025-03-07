@@ -1,0 +1,71 @@
+#1. using try-except (Basic exception handling)
+try:
+    x = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+    
+ #2. Handling multiple Exception
+    try:
+        lst = [1, 2, 3]
+        print(lst[5])
+    except (IndexError, ZeroDivisionError) as e:
+        print(f"An error occurred: {e}")
+    
+ # 3. using finally Block ( Always excited)
+try:
+    f = open("test.txt", "r")
+except FileNotFoundError:
+    print("File not found!")
+finally:
+    print("This will always execute.") 
+    
+# 4. Using else Block (Executes If No Exception)
+try:
+    num = int("20")
+except ValueError:
+    print("Invalid conversion!")
+else:
+    print("Conversion successful:", num)
+    
+ # 5. Catching All Exceptions (Using Exception)
+try:
+    result = 10 / 0
+except Exception as e:
+    print(f"An error occurred: {e}") 
+    
+ # 6. Raising Custom Exceptions
+class CustomError(Exception):
+    pass
+
+try:
+    raise CustomError("This is a custom exception!")
+except CustomError as e:
+    print(e) 
+     
+ # 7. Using assert for Error Handling  
+try:
+    x = -5
+    assert x >= 0, "Negative value not allowed!"
+except AssertionError as e:
+    print(e)   
+         
+ # 8. Handling Errors While Working With Files
+try:
+    with open("non_existent_file.txt", "r") as file:
+        content = file.read()
+except FileNotFoundError:
+    print("File not found! Please check the filename.")
+    
+ # 9. Handling keyerror in Dictionaries
+try:
+    my_dict = {"name": "Alice"}
+    print(my_dict["age"])
+except KeyError:
+    print("Key does not exist in the dictionary!")
+    
+ # 10. Handling typeerror Exception
+try:
+    print("Number: " + 5)
+except TypeError:
+    print("Cannot concatenate str and int!")       
+    
